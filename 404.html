@@ -6,9 +6,10 @@
       
       const base = '/urbanflow/';
       const cleanPath = path.startsWith(base) ? path : base + path.replace(/^\//, '');
-      
-      window.location.href = '/urbanflow/index.html';
+
       window.history.replaceState({}, '', cleanPath);
+      window.location.href = '/urbanflow/';
+      
           
     </script>
   </head>
