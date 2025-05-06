@@ -2,21 +2,21 @@
 <html>
   <head>
     <script>
-      // 1. Ottieni il percorso completo
-      const fullPath = window.location.pathname;
+      // 1. Prendi il percorso attuale
+      const path = window.location.pathname;
       
-      // 2. Se siamo su GitHub Pages, rimuovi il nome repository duplicato
-      // (davicompa.github.io è già la radice, non serve ripeterlo)
-      const correctedPath = fullPath.replace('/davicompa.github.io', '');
+      // 2. Pulizia del percorso per GitHub Pages
+      const base = '/urbanflow/'; // Sostituisci con il tuo base path
+      const cleanPath = path.startsWith(base) ? path : base + path.replace(/^\//, '');
       
-      // 3. Costruisci l'URL corretto
-      const newUrl = window.location.origin + correctedPath;
+      // 3. Sostituisci l'URL nel browser SENZA ricaricare
+      window.history.replaceState({}, '', cleanPath);
       
-      console.log("Redirecting to:", newUrl);
-      window.location.href = newUrl;
+      // 4. Forza il caricamento di index.html
+      window.location.href = '/urbanflow/index.html';
     </script>
   </head>
   <body>
-    <p>Reindirizzamento in corso...</p>
+    <p>Avvio applicazione...</p>
   </body>
 </html>
