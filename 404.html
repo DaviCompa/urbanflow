@@ -5,6 +5,7 @@
       // Reindirizza tutto a index.html, lasciando che Vue Router gestisca il percorso
       const segment = 1; // Modifica questo se il tuo repo è in una sottocartella
       const path = window.location.pathname.split('/').slice(segment).join('/');
+      console.log("redirect to:",path);
       window.location.href = `${window.location.origin}/urbanflow/${path}`.replace(/\/+/g, '/');
     </script>
   </head>
