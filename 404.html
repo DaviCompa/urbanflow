@@ -2,12 +2,18 @@
 <html>
   <head>
     <script>
-      // Reindirizza tutto a index.html, lasciando che Vue Router gestisca il percorso
-      const segment = 1; // Modifica questo se il tuo repo è in una sottocartella
-
-      const path = window.location.pathname.split('/').slice(segment).join('/');
-      console.log("redirect to:",path);
-      window.location.href = `${window.location.origin}/${path}`.replace(/\/+/g, '/');
+      // 1. Ottieni il percorso completo
+      const fullPath = window.location.pathname;
+      
+      // 2. Se siamo su GitHub Pages, rimuovi il nome repository duplicato
+      // (davicompa.github.io è già la radice, non serve ripeterlo)
+      const correctedPath = fullPath.replace('/davicompa.github.io', '');
+      
+      // 3. Costruisci l'URL corretto
+      const newUrl = window.location.origin + correctedPath;
+      
+      console.log("Redirecting to:", newUrl);
+      window.location.href = newUrl;
     </script>
   </head>
   <body>
