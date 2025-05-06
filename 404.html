@@ -7,7 +7,7 @@
 
       const path = window.location.pathname.split('/').slice(segment).join('/');
       console.log("redirect to:",path);
-      //window.location.href = `${window.location.origin}/urbanflow/${path}`.replace(/\/+/g, '/');
+      window.location.href = `${window.location.origin}/${path}`.replace(/\/+/g, '/');
     </script>
   </head>
   <body>
