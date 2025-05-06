@@ -2,18 +2,14 @@
 <html>
   <head>
     <script>
-      // 1. Prendi il percorso attuale
       const path = window.location.pathname;
       
-      // 2. Pulizia del percorso per GitHub Pages
-      const base = '/urbanflow/'; // Sostituisci con il tuo base path
+      const base = '/urbanflow/';
       const cleanPath = path.startsWith(base) ? path : base + path.replace(/^\//, '');
       
-      // 3. Sostituisci l'URL nel browser SENZA ricaricare
-      window.history.replaceState({}, '', cleanPath);
-      
-      // 4. Forza il caricamento di index.html
       window.location.href = '/urbanflow/index.html';
+      window.history.replaceState({}, '', cleanPath);
+          
     </script>
   </head>
   <body>
