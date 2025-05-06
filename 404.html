@@ -2,13 +2,25 @@
 <html>
   <head>
     <script>
-      const path = window.location.pathname;
-      
-      const base = '/urbanflow/';
-      const cleanPath = path.startsWith(base) ? path : base + path.replace(/^\//, '');
+        const path = window.location.pathname;
+        const base = '/urbanflow/';
+        let other;
+        if(path.startsWith(base)){
+            other = path.slice(base.length);
+        }else{
+            other = path;
+        }
 
-      window.history.replaceState({}, '', cleanPath);
-      window.location.href = '/urbanflow/';
+        const splitted = other.split("/");
+        
+        switch(splitted.length){
+
+            case 1: 
+                window.location.href = `/urbanflow/?page=${splitted[0]}`;
+                break;
+            case 2:
+                window.location.href = `/urbanflow/?page=${splitted[0]}&id=${splitted[1]}`;
+        }
       
           
     </script>
